@@ -13,7 +13,7 @@ avatar: /images/default_avatar.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://bluzwong.coding.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -66,8 +66,8 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: next
 
-plugins:
-- hexo-generator-baidu-sitemap
+#plugins:
+#- hexo-generator-baidu-sitemap
 
 baidusitemap:
   path: baidusitemap.xml
