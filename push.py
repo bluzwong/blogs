@@ -10,6 +10,7 @@ import json
 from bs4 import BeautifulSoup as BS
 import requests
 import msvcrt
+import io
 
 """
 hexo 博客专用，向百度站长平台提交所有网址
@@ -22,8 +23,8 @@ hexo 博客专用，向百度站长平台提交所有网址
 
 
 url = 'http://data.zz.baidu.com/urls?site=bluzwong.coding.io&token=AduSfzqW2AOUEjEO'
-baidu_sitemap = os.path.join(sys.path[0], 'public', 'baidusitemap.xml')
-google_sitemap = os.path.join(sys.path[0], 'public', 'sitemap.xml')
+baidu_sitemap = os.path.join(sys.path[0], 'baidusitemap.xml')
+google_sitemap = os.path.join(sys.path[0],  'sitemap.xml')
 sitemap = [baidu_sitemap, google_sitemap]
 
 assert (os.path.exists(baidu_sitemap) or os.path.exists(
@@ -35,7 +36,7 @@ def getUrls():
     urls = []
     for _ in sitemap:
         if os.path.exists(_):
-            with open(_, "r", encoding="utf-8") as f:
+            with io.open(_, "r", encoding="utf-8") as f:
                 xml = f.read()
             soup = BS(xml, "xml")
             tags = soup.find_all("loc")
